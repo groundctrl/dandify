@@ -3,6 +3,8 @@ module Spree
     validates :style_raw, presence: true
     validate :compilation
 
+    has_paper_trail :only => [:style_raw]
+
     private
 
     def compilation

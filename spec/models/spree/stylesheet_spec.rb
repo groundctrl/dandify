@@ -16,25 +16,65 @@ describe Spree::Stylesheet do
     end
   end
 
-  context 'post processing' do
-    it 'compresses vanilla css' do
-      uncompressed = <<-STR
+  context 'processing raw' do
+    it 'allows both css and scss' do
+      mixed =<<-STR
 
-      #main {
-         display: block;
-      }
+        $font-stack: Helvetica, sans-serif;
 
-      .foo {
-        width: 300px;
-        height: 200px;
-      }
+        body {
+          font: 100% $font-stack
+        }
+
+        h1 { display: inline ;}
 
       STR
-      compressed = "#main{display:block}.foo{width:300px;height:200px}\n"
-      style = style_with(uncompressed)
-      style.save
+      expect(style_with mixed).to be_valid
+    end
 
-      expect(style.style_compressed).to eq compressed
+    context 'compresses' do
+      it 'vanilla css' do
+        uncompressed = <<-STR
+
+        #main {
+           display: block;
+        }
+
+        .foo {
+          width: 300px;
+          height: 200px;
+        }
+
+        STR
+        compressed = "#main{display:block}.foo{width:300px;height:200px}\n"
+        style = style_with(uncompressed)
+        style.save
+
+        expect(style.style_compressed).to eq compressed
+      end
+
+      it 'compresses scss' do
+        uncompressed = <<-STR
+
+        nav {
+          ul {
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        a {
+          display: block;
+        }
+
+        STR
+
+        compressed = "nav ul{margin:0;padding:0}a{display:block}\n"
+        style = style_with(uncompressed)
+        style.save
+
+        expect(style.style_compressed).to eq compressed
+      end
     end
   end
 

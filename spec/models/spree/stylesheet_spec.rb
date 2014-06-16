@@ -47,9 +47,7 @@ describe Spree::Stylesheet do
 
         STR
         compressed = "#main{display:block}.foo{width:300px;height:200px}\n"
-        style = style_with(uncompressed)
-        style.save
-
+        style = create_style_with(uncompressed)
         expect(style.style_compressed).to eq compressed
       end
 
@@ -69,13 +67,17 @@ describe Spree::Stylesheet do
 
         STR
 
+        style = create_style_with(uncompressed)
         compressed = "nav ul{margin:0;padding:0}a{display:block}\n"
-        style = style_with(uncompressed)
-        style.save
-
         expect(style.style_compressed).to eq compressed
       end
     end
+  end
+
+  def create_style_with(css)
+    style = style_with(css)
+    style.save
+    style
   end
 
   def style_with(css)

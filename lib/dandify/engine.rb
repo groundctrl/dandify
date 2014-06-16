@@ -1,5 +1,5 @@
 module Dandify
-  class Engine < Rails::Engine
+  class Engine < ::Rails::Engine
     require 'spree/core'
     isolate_namespace Spree
     engine_name 'dandify'

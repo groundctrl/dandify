@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Stylesheet Admin', js: true do
+feature 'Stylesheet Admin' do
   stub_authorization!
 
   given!(:stylesheet) { create(:stylesheet) }

@@ -3,8 +3,10 @@
 <% end %>
 
 <% if @style.persisted? %>
+  <%= link_to_edit @style %>
  <pre><%= @style.style_raw %></pre>
 <% else %>
-  No custom style yet! Let's dandify!
+  <%= link_to_edit @style %>
+  No custom style yet! Let's get dandy!
 <% end %>
 

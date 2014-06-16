@@ -8,14 +8,14 @@ module Spree
     private
 
     def compilation
-      self.style_compressed = render_sass
+      self.style_compressed = rendered_sass
     end
 
     def sass_engine
       Sass::Engine.new style_raw, syntax: :scss, style: :compressed
     end
 
-    def render_sass
+    def rendered_sass
       sass_engine.render
     rescue => err
       errors.add :style_raw, err.message

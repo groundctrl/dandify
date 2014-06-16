@@ -1,10 +1,21 @@
 <% content_for :page_title do %>
   <%= Spree.t('styles') %>
 <% end %>
-
 <% if @style.persisted? %>
   <%= link_to_edit @style %>
  <pre><%= @style.style_raw %></pre>
+  <% if @style.versions.any? %>
+    <h1>Revision history</h1>
+    <ul>
+    <% @style.versions.each do |version| %>
+      <li class="revision">
+      <%= version.event %> by 
+      <%= version.whodunnit %> at 
+      <%= version.created_at %>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
 <% else %>
   <%= link_to_edit @style %>
   No custom style yet! Let's get dandy!

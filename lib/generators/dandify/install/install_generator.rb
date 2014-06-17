@@ -4,8 +4,16 @@ module Dandify
       class_option :auto_run_migrations, type: :boolean, default: true
 
       def add_migrations
-        run 'bundle exec rails generate paper_trail:install FROM=dandify'
         run 'bundle exec rake railties:install:migrations FROM=dandify'
+      end
+
+      def run_migrations
+        res = ask('Would you like to run the migrations now? [Y/n]').downcase
+        if ['', 'y'].include?(res)
+          run 'bundle exec rake db:migrate'
+        else
+          logger 'Skipping rake db:migrate, don\'t forget to run it!'
+        end
       end
     end
   end

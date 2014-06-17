@@ -1,6 +1,17 @@
 require 'spec_helper'
 
 describe Spree::Stylesheet do
+  context 'versions', versioning: true do
+    it { should be_versioned }
+
+    it 'restores previous versions' do
+      style = create :stylesheet
+      style.update style_raw: 'h1{display:none; color: blue;}'
+
+      expect(style.versions.size).to eq(2)
+    end
+  end
+
   context 'validations' do
     let(:valid_css) { '#main {background-color: #0000ff}' }
     let(:invalid_css) { 'main {background-color #0000ff}' }

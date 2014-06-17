@@ -25,6 +25,6 @@ feature 'Stylesheet administration' do
     visit show_path
 
     expect(page).to have_text new_styles
-    expect(page).to have_text 'Revision history'
+    expect(page).to have_content 'Revision history'
   end
 end

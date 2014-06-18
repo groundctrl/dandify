@@ -5,13 +5,13 @@ describe Spree::StylesheetsController do
     context 'with a bad format' do
       it 'still responds with blank sheet' do
         spree_get :show, format: :xml
-        expect(response.body).to eq ''
+        expect(response.header['Content-Type']).to include 'text/css'
       end
 
       it 'still responds with found sheet' do
-        compressed_styles = create(:stylesheet).style_compressed
+        create(:stylesheet).style_compressed
         spree_get :show, format: :atom
-        expect(response.body).to eq compressed_styles
+        expect(response.header['Content-Type']).to include 'text/css'
       end
     end
 

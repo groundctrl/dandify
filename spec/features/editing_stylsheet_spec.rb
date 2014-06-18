@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Editing stylesheet' do
+feature 'Managing stylesheets' do
   stub_authorization!
 
   let(:show_path) { spree.admin_stylesheet_path }

@@ -1,0 +1,20 @@
+<%= form_for(@style, url: admin_stylesheet_path(@style)) do |f| %>
+  <% if @style.errors.any? %>
+    <div class='error notice'>
+      <h2>
+        <%= pluralize(@style.errors.count, 'error') %> 
+        prevented your styles from being saved
+      </h2>
+      <ul>
+        <% @style.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.text_field :style_raw %>
+  <%= f.text_area :style_raw, size: '80x40' %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

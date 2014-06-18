@@ -5,6 +5,10 @@ module Spree
 
     has_paper_trail :only => [:style_raw]
 
+    def self.load_style
+      first || BlankStylesheet.new
+    end
+
     private
 
     def compilation

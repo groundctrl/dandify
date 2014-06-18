@@ -1,0 +1,2 @@
+<!-- insert_before 'erb:contains("csrf_meta_tags")'-->
+<%= stylesheet_link_tag dandystyles_path, format: :css, media: 'screen' %>

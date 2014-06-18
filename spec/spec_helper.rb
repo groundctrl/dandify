@@ -27,6 +27,7 @@ RSpec.configure do |config|
   config.include Spree::TestingSupport::ControllerRequests
   config.include FactoryGirl::Syntax::Methods
   config.include Spree::TestingSupport::UrlHelpers
+  config.include Devise::TestHelpers, type: :controller
   config.use_transactional_fixtures = false
   config.expose_current_running_example_as :example
   config.infer_spec_type_from_file_location!

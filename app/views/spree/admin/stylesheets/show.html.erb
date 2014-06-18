@@ -1,8 +1,8 @@
 <% content_for :page_title do %>
   <%= Spree.t('styles') %>
 <% end %>
+<%= link_to 'Create style', new_admin_stylesheet_path(@style) %>
 <% if @style.persisted? %>
-  <%= link_to_edit @style %>
  <pre><%= @style.style_raw %></pre>
   <% if @style.versions.any? %>
     <h1>Revision history</h1>
@@ -17,7 +17,6 @@
     </ul>
   <% end %>
 <% else %>
-  <%= link_to_edit @style %>
   No custom style yet! Let's get dandy!
 <% end %>
 

@@ -29,7 +29,7 @@ describe Spree::Stylesheet do
 
   context 'processing raw' do
     it 'allows both css and scss' do
-      mixed =<<-STR
+      mixed = <<-CSS
 
         $font-stack: Helvetica, sans-serif;
 
@@ -39,13 +39,13 @@ describe Spree::Stylesheet do
 
         h1 { display: inline ;}
 
-      STR
+      CSS
       expect(style_with mixed).to be_valid
     end
 
     context 'compresses' do
       it 'vanilla css' do
-        uncompressed = <<-STR
+        uncompressed = <<-CSS
 
         #main {
            display: block;
@@ -56,14 +56,14 @@ describe Spree::Stylesheet do
           height: 200px;
         }
 
-        STR
+        CSS
         compressed = "#main{display:block}.foo{width:300px;height:200px}\n"
         style = create_style_with(uncompressed)
         expect(style.style_compressed).to eq compressed
       end
 
       it 'compresses scss' do
-        uncompressed = <<-STR
+        uncompressed = <<-CSS
 
         nav {
           ul {
@@ -76,7 +76,7 @@ describe Spree::Stylesheet do
           display: block;
         }
 
-        STR
+        CSS
 
         style = create_style_with(uncompressed)
         compressed = "nav ul{margin:0;padding:0}a{display:block}\n"

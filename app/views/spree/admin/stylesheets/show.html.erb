@@ -1,6 +1,7 @@
 <% content_for :page_title do %>
   <%= Spree.t('styles') %>
 <% end %>
+<p class="notice"><%= notice %></p>
 <%= link_to 'Create style', new_admin_stylesheet_path(@style) %>
 <% if @style.persisted? %>
  <pre><%= @style.style_raw %></pre>

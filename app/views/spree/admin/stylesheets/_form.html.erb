@@ -1,20 +1,10 @@
-<%= form_for(@style, url: admin_stylesheet_path(@style)) do |f| %>
-  <% if @style.errors.any? %>
-    <div class='error notice'>
-      <h2>
-        <%= pluralize(@style.errors.count, 'error') %> 
-        prevented your styles from being saved
-      </h2>
-      <ul>
-        <% @style.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+<%= form_for(admin_stylesheet_path) do |f| %>
+  <%= #render "spree/shared/error_messages", :target => @style %>
+  <%= f.field_container :style_raw do %>
+    <%= f.label :style_raw %>
+    <%= f.text_area :style_raw, size: '80x40' %>
   <% end %>
-  <%= f.text_field :style_raw %>
-  <%= f.text_area :style_raw, size: '80x40' %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <fieldset class="no-border-top">
+    <%= render 'spree/admin/shared/edit_resource_links' %>
+  </fieldset>
 <% end %>

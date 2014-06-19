@@ -16,8 +16,8 @@ feature 'Managing stylesheets' do
 
     scenario 'user can create styles' do
       visit new_path
-      fill_in 'Style raw', with: 'body {display: none;}'
-      click_button 'Create Stylesheet'
+      fill_in 'Style Raw', with: 'body {display: none;}'
+      click_button 'Create'
     end
   end
 

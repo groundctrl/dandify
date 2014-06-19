@@ -16,7 +16,8 @@ module Spree
 
       def create
         @style = Spree::Stylesheet.new(style_params)
-        respond_with @style.save
+        @style.save
+        respond_with @style
       end
 
       def update

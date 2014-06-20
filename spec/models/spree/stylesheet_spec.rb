@@ -29,58 +29,52 @@ describe Spree::Stylesheet do
 
   context 'processing raw' do
     it 'allows both css and scss' do
-      mixed = <<-CSS
+      expect(style_with(<<-CSS)).to be_valid
 
-        $font-stack: Helvetica, sans-serif;
+$font-stack: Helvetica, sans-serif;
 
-        body {
-          font: 100% $font-stack
-        }
+body {
+  font: 100% $font-stack
+}
 
-        h1 { display: inline ;}
+h1 { display: inline ;}
 
       CSS
-      expect(style_with mixed).to be_valid
     end
 
     context 'compresses' do
       it 'vanilla css' do
-        uncompressed = <<-CSS
+        compressed = "#main{display:block}.foo{width:300px;height:200px}\n"
+        expect(create_style_with(<<-CSS).style_compressed).to eq compressed
 
-        #main {
-           display: block;
-        }
+#main {
+   display: block;
+}
 
-        .foo {
-          width: 300px;
-          height: 200px;
-        }
+.foo {
+  width: 300px;
+  height: 200px;
+}
 
         CSS
-        compressed = "#main{display:block}.foo{width:300px;height:200px}\n"
-        style = create_style_with(uncompressed)
-        expect(style.style_compressed).to eq compressed
       end
 
       it 'compresses scss' do
-        uncompressed = <<-CSS
+        compressed = "nav ul{margin:0;padding:0}a{display:block}\n"
+        expect(create_style_with(<<-CSS).style_compressed).to eq compressed
 
-        nav {
-          ul {
-            margin: 0;
-            padding: 0;
-          }
-        }
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+}
 
-        a {
-          display: block;
-        }
+a {
+  display: block;
+}
 
         CSS
-
-        style = create_style_with(uncompressed)
-        compressed = "nav ul{margin:0;padding:0}a{display:block}\n"
-        expect(style.style_compressed).to eq compressed
       end
     end
   end

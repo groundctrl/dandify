@@ -1,6 +1,7 @@
 .bundle/
 log/*.log
 spec/dummy/*
+Gemfile.lock
 rspec.log
 coverage
 pkg/

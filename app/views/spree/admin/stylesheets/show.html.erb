@@ -5,20 +5,9 @@
 <% if @style.persisted? %>
   <%= link_to 'Edit Style', edit_admin_stylesheet_path(@style) %>
  <pre><%= @style.style_raw %></pre>
-  <% if @style.versions.any? %>
-    <h1>Revision history</h1>
-    <ul>
-    <% @style.versions.each do |version| %>
-      <li class="revision">
-      <%= version.event %> by 
-      <%= version.whodunnit %> at 
-      <%= version.created_at %>
-      </li>
-    <% end %>
-    </ul>
-  <% end %>
+  <%= render partial: 'versions', locals: {versions: @style.versions} %>
 <% else %>
-  No custom style yet! Let's get dandy!
   <%= link_to 'Create style', new_admin_stylesheet_path(@style) %>
+  No custom style yet! Let's get dandy!
 <% end %>
 

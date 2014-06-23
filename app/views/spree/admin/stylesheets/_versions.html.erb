@@ -1,0 +1,6 @@
+<% if versions.any? %>
+  <h1>Revision history</h1>
+  <ul>
+    <%= render partial: 'version', collection: versions %>
+  </ul>
+<% end %>

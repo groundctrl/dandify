@@ -79,16 +79,6 @@ a {
     end
   end
 
-  context '#load_style' do
-    it 'returns Blanksheet instance when no sheet is found' do
-      expect(Spree::Stylesheet.load_style).to be_a Spree::BlankStylesheet
-    end
-
-    it 'returns a found sheet' do
-      styles = create :stylesheet
-      expect(Spree::Stylesheet.load_style).to eq styles
-    end
-  end
 
   def create_style_with(css)
     style = style_with(css)
@@ -100,3 +90,15 @@ a {
     Spree::Stylesheet.new(style_raw: css)
   end
 end
+
+describe Spree::Stylesheet, '#load_style' do
+  it 'returns Blanksheet when no sheet is found' do
+    expect(Spree::Stylesheet.load_style).to be_a Spree::BlankStylesheet
+  end
+
+  it 'returns a found instance of itself' do
+    styles = create :stylesheet
+    expect(Spree::Stylesheet.load_style).to eq styles
+  end
+end
+

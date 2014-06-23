@@ -1,0 +1,9 @@
+---
+en:
+  activerecord:
+    attributes:
+      spree/stylesheet:
+        style_raw: Styles
+  spree:
+    style_raw: Styles
+    new_style: New Styles

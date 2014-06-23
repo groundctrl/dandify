@@ -2,8 +2,8 @@
   <%= Spree.t('styles') %>
 <% end %>
 <p class="notice"><%= notice %></p>
-<%= link_to 'Create style', new_admin_stylesheet_path(@style) %>
 <% if @style.persisted? %>
+  <%= link_to 'Edit Style', edit_admin_stylesheet_path(@style) %>
  <pre><%= @style.style_raw %></pre>
   <% if @style.versions.any? %>
     <h1>Revision history</h1>
@@ -19,5 +19,6 @@
   <% end %>
 <% else %>
   No custom style yet! Let's get dandy!
+  <%= link_to 'Create style', new_admin_stylesheet_path(@style) %>
 <% end %>
 

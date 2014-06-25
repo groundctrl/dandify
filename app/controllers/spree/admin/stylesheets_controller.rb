@@ -25,6 +25,7 @@ module Spree
       end
 
       private
+
         def set_style
           @style = Spree::Stylesheet.first_or_initialize
         end

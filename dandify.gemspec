@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.requirements << 'none'
 
   spec.add_dependency 'spree_core', '~> 2.3.0.beta'
-  spec.add_dependency 'sass', '~> 3.3.8'
+  spec.add_dependency 'sass-rails', '~> 4.0.0'
   spec.add_dependency 'paper_trail', '~> 3.0'
   spec.add_development_dependency 'spring', '~> 1.1'
   spec.add_development_dependency 'sqlite3', '~> 1.3'

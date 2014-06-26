@@ -3,5 +3,5 @@ Spree::Core::Engine.add_routes do
     resource :stylesheet
   end
 
-  match 'dandystyles', to: 'spree/stylesheets#show', via: :all
+  match 'dandystyles', to: 'stylesheets#show', via: :all
 end

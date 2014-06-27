@@ -1,8 +1,14 @@
-<h1>Editing Custom Styles</h1>
+<%= render 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t('dandify.edit.title') %>
+<% end %>
+
 <%= render partial: 'spree/shared/error_messages', locals: {target: @style} %>
+
 <%= form_for @style, url: admin_stylesheet_path do |f| %>
-  <fieldset data-hook="new_style">
-    <legend align="center"><%= Spree.t(:new_style) %></legend>
+  <fieldset data-hook="edit_style">
+    <legend align="center"><%= Spree.t('dandify.form.fieldset') %></legend>
     <%= render partial: 'form', locals: {f: f} %>
     <div class="form-buttons filter-actions actions" data-hook="buttons">
       <%= button Spree.t('actions.update'), 'ok' %>

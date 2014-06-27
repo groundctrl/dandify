@@ -1,13 +1,16 @@
+<%= render 'spree/admin/shared/configuration_menu' %>
+
 <% content_for :page_title do %>
-  <%= Spree.t('styles') %>
-<% end %>
-<p class="notice"><%= notice %></p>
-<% if @style.persisted? %>
-  <%= link_to 'Edit Style', edit_admin_stylesheet_path(@style) %>
- <pre><%= @style.style_raw %></pre>
-  <%= render partial: 'versions', locals: {versions: @style.versions} %>
-<% else %>
-  <%= link_to 'Create style', new_admin_stylesheet_path(@style) %>
-  No custom style yet! Let's get dandy!
+  <%= Spree.t('dandify.show.title') %>
 <% end %>
 
+<p class="notice"><%= notice %></p>
+
+<% if @style.persisted? %>
+  <%= link_to Spree.t('dandify.show.button.edit'), edit_admin_stylesheet_path(@style) %>
+  <pre><%= @style.style_raw %></pre>
+  <%= render partial: 'versions', locals: {versions: @style.versions} %>
+<% else %>
+  <%= link_to Spree.t('dandify.show.button.new'), new_admin_stylesheet_path(@style) %>
+  <%= Spree.t('dandify.show.none') %>
+<% end %>

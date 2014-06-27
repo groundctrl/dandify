@@ -13,15 +13,15 @@ en:
         button:
           new: Create style
           edit: Edit Style
-        history: Revision History
+        history: Revision history
         version: "%{action} by %{author} at %{at}"
       new:
-        title: Creating Custom Style
+        title: Creating Custom Styles
         fieldset: New Styles
       edit:
         title: Editing Custom Styles
         fieldset: New Styles
       form:
         fieldset: Stylesheet
-        label: Style
+        label: Styles
         required: "*"

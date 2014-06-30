@@ -6,7 +6,7 @@ en:
         style_raw: Styles
   spree:
     dandify:
-      sidebar: Dandify Styles
+      sidebar: Store Stylesheet
       show:
         title: Custom Styles
         none: No custom style yet! Let's get dandy!

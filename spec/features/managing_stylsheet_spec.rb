@@ -10,9 +10,9 @@ feature 'Managing stylesheets' do
   context 'without existing style' do
     scenario 'user can navigate to edit screen' do
       visit show_path
-      click_link 'Create style'
+      click_link Spree.t('dandify.show.button.new')
 
-      expect(page).to have_text 'Creating Custom Styles'
+      expect(page).to have_text Spree.t('dandify.new.title')
     end
 
     scenario 'user can create styles' do
@@ -29,18 +29,18 @@ feature 'Managing stylesheets' do
 
     scenario 'user can edit exiting styles' do
       visit show_path
-      click_link 'Edit Style'
+      click_link Spree.t('dandify.show.button.edit')
 
-      expect(page).to have_text 'Editing Custom Styles'
+      expect(page).to have_text Spree.t('dandify.edit.title')
       expect(page).to have_text Spree::Stylesheet.first.style_raw
     end
 
     scenario 'user creates audit trail on edit', versioning: true do
       visit edit_path
-      fill_in 'Styles', with: '#main {display: none;}'
+      fill_in Spree.t('dandify.form.label'), with: '#main {display: none;}'
       click_button 'Update'
 
-      expect(page).to have_text 'Revision history'
+      expect(page).to have_text Spree.t('dandify.show.history')
     end
   end
 end

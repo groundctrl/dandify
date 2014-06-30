@@ -7,13 +7,13 @@ feature 'Viewing stylesheet administration page' do
 
   scenario 'user views page with no stylesheet' do
     visit show_path
-    expect(page).to have_text 'No custom style yet!'
+    expect(page).to have_text Spree.t('dandify.show.none')
   end
 
   scenario 'user views page with new stylesheet' do
     create :stylesheet
     visit show_path
-    expect(page).to_not have_text 'Revision history'
+    expect(page).to_not have_text Spree.t('dandify.show.history')
   end
 
   scenario 'user views page with existing stylesheet' do
@@ -21,13 +21,13 @@ feature 'Viewing stylesheet administration page' do
     visit show_path
 
     expect(page).to have_text style.style_raw
-    expect(page).to_not have_text 'Revision history'
+    expect(page).to_not have_text Spree.t('dandify.show.history')
   end
 
   scenario 'user views page with stylesheet history', versioning: true do
     create(:stylesheet).update style_raw: 'body {display: none;}'
     visit show_path
 
-    expect(page).to have_text 'Revision history'
+    expect(page).to have_text Spree.t('dandify.show.history')
   end
 end

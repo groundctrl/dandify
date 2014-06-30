@@ -1,7 +1,7 @@
 <div data-hook="admin_style_form" class="align-center row">
   <div class="alpha eight columns">
     <%= f.field_container :style_raw do %>
-      <%= f.label :style_raw, Spree.t(:style_raw) %> <span class="required">*</span>
+      <%= f.label :style_raw, Spree.t('dandify.form.label') %> <span class="required"><%= Spree.t('dandify.form.required') %></span>
       <%= f.text_area :style_raw, size: '80x40' %>
       <%= f.error_message_on :style_raw %>
     <% end %>

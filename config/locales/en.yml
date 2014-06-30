@@ -5,5 +5,23 @@ en:
       spree/stylesheet:
         style_raw: Styles
   spree:
-    style_raw: Styles
-    new_style: New Styles
+    dandify:
+      sidebar: Dandify Styles
+      show:
+        title: Custom Styles
+        none: No custom style yet! Let's get dandy!
+        button:
+          new: Create style
+          edit: Edit Style
+        history: Revision history
+        version: "%{action} by %{author} at %{at}"
+      new:
+        title: Creating Custom Styles
+        fieldset: New Styles
+      edit:
+        title: Editing Custom Styles
+        fieldset: New Styles
+      form:
+        fieldset: Stylesheet
+        label: Styles
+        required: "*"

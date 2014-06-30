@@ -8,6 +8,6 @@ describe 'When on main configuration page' do
 
   it 'the user views Dandify link in sidebar' do
     visit configuration_path
-    expect(page).to have_link('Store Stylesheet', :href => show_path)
+    expect(page).to have_link(Spree.t('dandify.sidebar'), :href => show_path)
   end
 end

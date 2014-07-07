@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.has_rdoc = false
   spec.requirements << 'none'
 
-  spec.add_dependency 'spree_core', '~> 2.3.0.beta'
+  spec.add_dependency 'spree_core', '~> 2.3.0'
   spec.add_dependency 'sass-rails', '~> 4.0.0'
   spec.add_dependency 'paper_trail', '~> 3.0'
   spec.add_development_dependency 'spring', '~> 1.1'

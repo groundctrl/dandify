@@ -1,6 +1,32 @@
-<% if versions.any? %>
-  <h1><%= Spree.t('dandify.show.history') %></h1>
-  <ul>
-    <%= render partial: 'version', collection: versions %>
-  </ul>
-<% end %>
+<table class="index responsive" id="listing_versions" data-hook="listing_style_versions">
+  <colgroup>
+     <col style="width: 22%;">
+     <col style="width: 60%;">
+     <col style="width: 10%;">
+     <col style="width: 8%;">
+  </colgroup>
+  <thead>
+    <tr data-hook="stylesheets_show_index_headers">
+      <th><%= Spree.t('dandify.show.headers.created_at') %></th>
+      <th><%= Spree.t('dandify.show.headers.author') %></th>
+      <th><%= Spree.t('dandify.show.headers.action') %></th>
+      <th data-hook="admin_stylesheets_show_header_actions" class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% versions.reverse.each_with_index do |version, index| %>
+    <tr data-hook="admin_stylesheets_show_rows" class="<%= cycle('odd', 'even') %>">
+      <td class="align-center"><%= version.created_at.to_date %></td>
+      <td><%= version.whodunnit.to_i %></td>
+      <td><%= version.event.capitalize %></td>
+      <td class='actions align-center' data-hook="admin_stylesheets_show_row_actions">
+      <% if index == 0 %>
+        <%= link_to_edit_url edit_admin_stylesheets_path, :title => 'admin_edit_stylesheet', :no_text => true %>
+      <% else %>
+        <!-- <%= link_to_restore_url restore_admin_stylesheets_path(version.id), :title => 'admin_restore_stylesheet', :no_text => true %> -->
+      <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

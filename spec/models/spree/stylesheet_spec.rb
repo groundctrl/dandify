@@ -79,7 +79,6 @@ a {
     end
   end
 
-
   def create_style_with(css)
     style = style_with(css)
     style.save
@@ -101,4 +100,3 @@ describe Spree::Stylesheet, '#load_style' do
     expect(Spree::Stylesheet.load_style).to eq styles
   end
 end
-

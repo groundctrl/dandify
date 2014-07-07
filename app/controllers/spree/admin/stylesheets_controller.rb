@@ -5,15 +5,6 @@ module Spree
       respond_to :html
       before_action :set_style, only: [:new, :create, :show, :edit, :update]
 
-      def show
-      end
-
-      def new
-      end
-
-      def edit
-      end
-
       def create
         if @style.update style_params
           flash[:success] = Spree.t('dandify.new.success')
@@ -29,6 +20,21 @@ module Spree
           redirect_to admin_stylesheets_path
         else
           render :edit
+        end
+      end
+
+      def restore
+        @version = PaperTrail::Version.find_by_id(params[:id])
+
+        begin
+          if @version.reify
+            @version.reify.save
+          end
+          flash[:alert] = Spree.t('dandify.restore.success')
+        rescue
+          flash[:alert] = Spree.t('dandify.restore.failure')
+        ensure
+          redirect_to admin_stylesheets_path
         end
       end
 

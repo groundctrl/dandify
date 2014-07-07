@@ -6,14 +6,14 @@
 
 <%= render partial: 'spree/shared/error_messages', locals: {target: @style} %>
 
-<%= form_for @style, url: admin_stylesheet_path do |f| %>
+<%= form_for @style, url: admin_stylesheets_path do |f| %>
   <fieldset data-hook="new_style">
     <legend align="center"><%= Spree.t('dandify.form.fieldset') %></legend>
     <%= render partial: 'form', locals: {f: f} %>
     <div class="form-buttons filter-actions actions" data-hook="buttons">
       <%= button Spree.t('actions.create'), 'ok' %>
       <span class="or"><%= Spree.t(:or) %></span>
-      <%= link_to_with_icon 'remove', Spree.t('actions.cancel'), admin_stylesheet_path, class: 'button' %>
+      <%= link_to_with_icon 'remove', Spree.t('actions.cancel'), admin_stylesheets_path, class: 'button' %>
     </div>
   </fieldset>
 <% end %>

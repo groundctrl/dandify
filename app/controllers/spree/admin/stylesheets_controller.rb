@@ -15,13 +15,21 @@ module Spree
       end
 
       def create
-        @style.update style_params
-        respond_with :admin, @style
+        if @style.update style_params
+          flash[:success] = Spree.t('dandify.new.success')
+          redirect_to admin_stylesheets_path
+        else
+          render :new
+        end
       end
 
       def update
-        @style.update style_params
-        respond_with :admin, @style
+        if @style.update style_params
+          flash[:success] = Spree.t('dandify.edit.success')
+          redirect_to admin_stylesheets_path
+        else
+          render :edit
+        end
       end
 
       private

@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Viewing stylesheet administration page' do
   stub_authorization!
 
-  let(:show_path) { spree.admin_stylesheet_path }
+  let(:show_path) { spree.admin_stylesheets_path }
 
   scenario 'user views page with no stylesheet' do
     visit show_path

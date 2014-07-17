@@ -16,7 +16,7 @@ describe 'In the admin' do
 
     it 'the user views non-highlighted Dandify link in sidebar' do
       visit configuration_path
-      expect(page).to_not (
+      expect(page).to_not(
         have_selector(:css, "li.active a[href='#{show_path}']")
       )
     end

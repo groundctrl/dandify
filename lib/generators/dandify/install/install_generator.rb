@@ -8,7 +8,7 @@ module Dandify
       end
 
       def add_stylesheets
-        inject_into_file 'vendor/assets/stylesheets/spree/backend/all.css', "*= require spree/backend/dandify\n", :before => /\*\//, :verbose => true
+        inject_into_file 'vendor/assets/stylesheets/spree/backend/all.css', "*= require spree/backend/dandify\n", before: /\*\//, verbose: true
       end
 
       def run_migrations

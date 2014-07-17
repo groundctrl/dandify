@@ -18,6 +18,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
+require 'paper_trail/frameworks/rspec'
 
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 
@@ -45,7 +46,8 @@ RSpec.configure do |config|
   end
 
   config.before do
-    DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
+    strategy = example.metadata[:js] ? :truncation : :transaction
+    DatabaseCleaner.strategy = strategy
     DatabaseCleaner.start
   end
 

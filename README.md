@@ -2,7 +2,14 @@
 
 Dandify is not a theme. It is a theme helper that allows you to quickly apply versioned frontend style changes from the Spree admin. Dandify only works with stylesheets. Dandify is best used in conjunction with [Shopping Mall](https://github.com/groundctrl/shopping_mall).
 
+
 ## Installation
+
+#### Gem
+
+Add this line to your Spree application's Gemfile:
+
+    gem 'dandify', github: 'groundctrl/dandify', branch: 'master'
 
 #### Bleeding edge
 
@@ -10,22 +17,18 @@ Add this line to your Spree application's Gemfile:
 
     gem 'dandify', github: 'groundctrl/dandify'
 
-#### Gem (Not ready yet.)
-
-Add this line to your Spree application's Gemfile:
-> NOTE: Gem is yet to be released (Spree 2.3 isn't out yet.)
-
-    gem 'dandify'
+> Note: The master branch is not guaranteed to be in a fully functioning state. It is unwise to use this branch in a production system.
 
 #### Generators
 
-Run the bundle command to install it
+Run the bundle command to install it:
 
     bundle install
 
 After installing Dandify you'll need to run the generator:
 
     bundle exec rails g dandify:install
+
 
 ## Testing
 
@@ -36,6 +39,7 @@ Generate a dummy application
 Running tests
 
     bundle exec rake spec
+
 
 ## Contributing
 

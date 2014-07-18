@@ -8,27 +8,29 @@ module Spree
       before_action :set_style
 
       def create
-        update_action('new')
+        update_action :new
       end
 
       def update
-        update_action('edit')
+        update_action :edit
       end
 
       def restore
-        response = 'success'
-        begin
-          @style.versions.last.reify.save!
-        rescue
-          response = 'error'
-        end
+        response = rollback_version
 
         redirect_to admin_stylesheets_path, flash: {
-          :"#{response}" => Spree.t("dandify.restore.#{response}")
+          response => Spree.t("dandify.restore.#{response}")
         }
       end
 
       private
+
+      def rollback_version
+        @style.versions.last.reify.save!
+        :success
+      rescue
+        :error
+      end
 
       def update_action(type)
         if @style.update(style_params)

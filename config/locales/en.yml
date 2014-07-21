@@ -6,6 +6,7 @@ en:
         style_raw: Styles
   spree:
     dandify:
+      unknown: Unknown
       sidebar: Store Stylesheet
       show:
         title: Custom Styles

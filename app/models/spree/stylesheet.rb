@@ -3,7 +3,8 @@ module Spree
     validates :style_raw, presence: true
     validate :compilation
 
-    has_paper_trail only: [:style_raw]
+    has_paper_trail only: [:style_raw],
+                    class_name: 'Spree::StylesheetVersion'
 
     def self.load_style
       first || BlankStylesheet.new

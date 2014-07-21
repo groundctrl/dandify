@@ -1,7 +1,7 @@
 module Spree
   module Admin
     class StylesheetsController < BaseController
-      helper Spree::BaseHelper
+      helper Spree::Admin::StylesheetHelper
 
       respond_to :html
 

@@ -17,7 +17,7 @@
   <% versions.reverse.each_with_index do |version, index| %>
     <tr data-hook="admin_stylesheets_show_rows" class="<%= cycle('odd', 'even') %>">
       <td class="align-center"><%= version.created_at.to_date %></td>
-      <td><%= version.whodunnit.to_i %></td>
+      <td><%= link_to(dandify_version_email(version.user), admin_user_path(version.whodunnit.to_i)) %></td>
       <td><%= version.event.capitalize %></td>
       <td class='actions align-center' data-hook="admin_stylesheets_show_row_actions">
       <% if index == 0 %>

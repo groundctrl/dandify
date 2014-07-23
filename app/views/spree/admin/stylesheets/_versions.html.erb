@@ -21,9 +21,9 @@
       <td><%= version.event.capitalize %></td>
       <td class='actions align-center' data-hook="admin_stylesheets_show_row_actions">
       <% if index == 0 %>
-        <%= link_to_edit_url edit_admin_stylesheets_path, :title => 'admin_edit_stylesheet', :no_text => true %>
+        <%= link_to_edit_url edit_admin_stylesheets_path, title: 'admin_edit_stylesheet', no_text: true %>
       <% elsif index == 1 %>
-        <%= link_to_restore_url restore_admin_stylesheets_path, :title => 'admin_restore_stylesheet', :no_text => true, :method=> :post %>
+        <%= link_to_restore_url restore_admin_stylesheets_path, title: 'admin_restore_stylesheet', no_text: true, method: :post %>
       <% end %>
       </td>
     </tr>

@@ -7,9 +7,9 @@
 <% content_for :page_actions do %>
 <li>
   <% if @style.persisted? %>
-    <%= button_link_to Spree.t('dandify.show.buttons.edit'), edit_admin_stylesheets_path, :icon => 'edit', :id => 'admin_edit_stylesheet_link' %>
+    <%= button_link_to Spree.t('dandify.show.buttons.edit'), edit_admin_stylesheets_path, icon: 'edit', id: 'admin_edit_stylesheet_link' %>
   <% else %>
-    <%= button_link_to Spree.t('dandify.show.buttons.new'), new_admin_stylesheets_path, :icon => 'plus', :id => 'admin_new_stylesheet_link' %>
+    <%= button_link_to Spree.t('dandify.show.buttons.new'), new_admin_stylesheets_path, icon: 'plus', id: 'admin_new_stylesheet_link' %>
   <% end %>
 </li>
 <% end %>
@@ -17,7 +17,7 @@
 <p class="notice"><%= notice %></p>
 
 <% if @style.persisted? %>
-  <%= render partial: 'versions', locals: {versions: @style.versions} %>
+  <%= render partial: 'versions', locals: { versions: @style.versions } %>
 <% else %>
   <%= Spree.t('dandify.show.none') %>
 <% end %>

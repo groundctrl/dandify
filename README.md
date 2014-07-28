@@ -1,6 +1,7 @@
 # Dandify
 
 [![Code Climate](https://codeclimate.com/github/groundctrl/dandify.png)](https://codeclimate.com/github/groundctrl/dandify)
+[![Build Status](https://travis-ci.org/groundctrl/dandify.svg?branch=master)](https://travis-ci.org/groundctrl/dandify)
 
 Dandify is not a theme. It is a theme helper that allows you to quickly apply versioned frontend style changes from the Spree admin. Dandify only works with stylesheets. Dandify is best used in conjunction with [Shopping Mall](https://github.com/groundctrl/shopping_mall).
 

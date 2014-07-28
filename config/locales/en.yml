@@ -6,22 +6,32 @@ en:
         style_raw: Styles
   spree:
     dandify:
+      unknown: Unknown
       sidebar: Store Stylesheet
       show:
         title: Custom Styles
+        buttons:
+          new: Create stylesheet
+          edit: Edit stylesheet
         none: No custom style yet! Let's get dandy!
-        button:
-          new: Create style
-          edit: Edit Style
-        history: Revision history
-        version: "%{action} by %{author} at %{at}"
+        headers:
+          created_at: Created
+          author: Author
+          action: Action
       new:
         title: Creating Custom Styles
-        fieldset: New Styles
+        success: New stylesheet has been created.
       edit:
         title: Editing Custom Styles
-        fieldset: New Styles
+        success: Stylesheet has been updated. A new revision has been created.
+      restore:
+        name: Restore
+        success: Stylesheet has been restored. A new revision has been created.
+        error: Unable to restore stylesheet.
       form:
         fieldset: Stylesheet
         label: Styles
-        required: "*"
+        notes:
+          sass: Stylesheets are compiled and minified using a CSS preprocessor. Valid SCSS can be used here.
+      confirm:
+        restore: Are you sure you want to restore this version of the stylesheet?

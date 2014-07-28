@@ -3,31 +3,47 @@ require 'spec_helper'
 feature 'Viewing stylesheet administration page' do
   stub_authorization!
 
-  let(:show_path) { spree.admin_stylesheet_path }
+  let(:show_path) { spree.admin_stylesheets_path }
 
-  scenario 'user views page with no stylesheet' do
-    visit show_path
-    expect(page).to have_text Spree.t('dandify.show.none')
+  context 'without existing style' do
+    scenario 'user views page with no stylesheet' do
+      visit show_path
+
+      expect(page).to have_text Spree.t('dandify.show.none')
+    end
+
+    scenario 'user has access to create link' do
+      visit show_path
+
+      expect(page).to have_text Spree.t('dandify.show.buttons.new')
+    end
+
+    scenario 'user does not have access to edit link' do
+      visit show_path
+
+      expect(page).to_not have_text Spree.t('dandify.show.buttons.edit')
+    end
   end
 
-  scenario 'user views page with new stylesheet' do
-    create :stylesheet
-    visit show_path
-    expect(page).to_not have_text Spree.t('dandify.show.history')
-  end
+  context 'with existing style' do
+    before { create :stylesheet }
 
-  scenario 'user views page with existing stylesheet' do
-    style = create :stylesheet
-    visit show_path
+    scenario 'user views page with an active stylesheet' do
+      visit show_path
 
-    expect(page).to have_text style.style_raw
-    expect(page).to_not have_text Spree.t('dandify.show.history')
-  end
+      expect(page).to_not have_text Spree.t('dandify.show.none')
+    end
 
-  scenario 'user views page with stylesheet history', versioning: true do
-    create(:stylesheet).update style_raw: 'body {display: none;}'
-    visit show_path
+    scenario 'user does not have access to create link' do
+      visit show_path
 
-    expect(page).to have_text Spree.t('dandify.show.history')
+      expect(page).to_not have_text Spree.t('dandify.show.buttons.new')
+    end
+
+    scenario 'user has access to edit link' do
+      visit show_path
+
+      expect(page).to have_text Spree.t('dandify.show.buttons.edit')
+    end
   end
 end

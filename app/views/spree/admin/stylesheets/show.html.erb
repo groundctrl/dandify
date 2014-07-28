@@ -4,13 +4,20 @@
   <%= Spree.t('dandify.show.title') %>
 <% end %>
 
+<% content_for :page_actions do %>
+<li>
+  <% if @style.persisted? %>
+    <%= button_link_to Spree.t('dandify.show.buttons.edit'), edit_admin_stylesheets_path, icon: 'edit', id: 'admin_edit_stylesheet_link' %>
+  <% else %>
+    <%= button_link_to Spree.t('dandify.show.buttons.new'), new_admin_stylesheets_path, icon: 'plus', id: 'admin_new_stylesheet_link' %>
+  <% end %>
+</li>
+<% end %>
+
 <p class="notice"><%= notice %></p>
 
 <% if @style.persisted? %>
-  <%= link_to Spree.t('dandify.show.button.edit'), edit_admin_stylesheet_path(@style) %>
-  <pre><%= @style.style_raw %></pre>
-  <%= render partial: 'versions', locals: {versions: @style.versions} %>
+  <%= render partial: 'versions', locals: { versions: @style.versions } %>
 <% else %>
-  <%= link_to Spree.t('dandify.show.button.new'), new_admin_stylesheet_path(@style) %>
   <%= Spree.t('dandify.show.none') %>
 <% end %>

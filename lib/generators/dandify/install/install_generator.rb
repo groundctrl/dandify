@@ -7,12 +7,8 @@ module Dandify
         run 'bundle exec rake railties:install:migrations FROM=dandify'
       end
 
-      def add_javascripts
-        append_file 'vendor/assets/javascripts/spree/backend/all.js', "//= require spree/backend/dandify\n"
-      end
-
       def add_stylesheets
-        inject_into_file 'vendor/assets/stylesheets/spree/backend/all.css', "*= require spree/backend/dandify\n", :before => /\*\//, :verbose => true
+        inject_into_file 'vendor/assets/stylesheets/spree/backend/all.css', "*= require spree/backend/dandify\n", before: /\*\//, verbose: true
       end
 
       def run_migrations

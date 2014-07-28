@@ -1,6 +1,6 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "dandify/version"
+require 'dandify/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
@@ -14,13 +14,16 @@ Gem::Specification.new do |spec|
   spec.license     = 'MIT'
   spec.required_ruby_version = '>= 1.9.3'
 
-  spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
+  spec.files = Dir['{app,config,db,lib}/**/*',
+                   'MIT-LICENSE',
+                   'Rakefile',
+                   'README.md']
   spec.test_files   = `git ls-files -- spec/*`.split("\n")
   spec.require_path = 'lib'
   spec.has_rdoc = false
   spec.requirements << 'none'
 
-  spec.add_dependency 'spree_core', '~> 2.3.0.beta'
+  spec.add_dependency 'spree_core', '~> 2.3.0'
   spec.add_dependency 'sass-rails', '~> 4.0.0'
   spec.add_dependency 'paper_trail', '~> 3.0'
   spec.add_development_dependency 'spring', '~> 1.1'

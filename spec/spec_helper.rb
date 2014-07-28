@@ -1,9 +1,15 @@
 require 'simplecov'
 SimpleCov.start 'rails'
 
-ENV["RAILS_ENV"] = 'test'
+ENV['RAILS_ENV'] = 'test'
 
-require File.expand_path('../dummy/config/environment.rb',  __FILE__)
+begin
+  require File.expand_path('../dummy/config/environment.rb',  __FILE__)
+rescue LoadError
+  puts 'Could not load dummy application. Run `bundle exec rake test_app` first'
+  exit
+end
+
 require 'rspec/rails'
 require 'shoulda-matchers'
 require 'ffaker'
@@ -12,13 +18,15 @@ require 'capybara'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
+require 'paper_trail/frameworks/rspec'
 
-Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each {|f| require f }
+Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 
 require 'spree/testing_support/factories'
 require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/authorization_helpers'
 require 'spree/testing_support/url_helpers'
+require 'spree/testing_support/capybara_ext'
 
 FactoryGirl.find_definitions
 
@@ -38,7 +46,8 @@ RSpec.configure do |config|
   end
 
   config.before do
-    DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
+    strategy = example.metadata[:js] ? :truncation : :transaction
+    DatabaseCleaner.strategy = strategy
     DatabaseCleaner.start
   end
 

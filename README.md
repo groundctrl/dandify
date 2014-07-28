@@ -11,13 +11,13 @@ Dandify is not a theme. It is a theme helper that allows you to quickly apply ve
 
 Add this line to your Spree application's Gemfile:
 
-    gem 'dandify', github: 'groundctrl/dandify', branch: 'master'
+    gem 'dandify', github: 'groundctrl/dandify'
 
 #### Bleeding edge
 
 Add this line to your Spree application's Gemfile:
 
-    gem 'dandify', github: 'groundctrl/dandify'
+    gem 'dandify', github: 'groundctrl/dandify', branch: 'master'
 
 > Note: The master branch is not guaranteed to be in a fully functioning state. It is unwise to use this branch in a production system.
 

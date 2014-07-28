@@ -11,7 +11,7 @@ Dandify is not a theme. It is a theme helper that allows you to quickly apply ve
 
 Add this line to your Spree application's Gemfile:
 
-    gem 'dandify', github: 'groundctrl/dandify'
+    gem 'dandify'
 
 #### Bleeding edge
 

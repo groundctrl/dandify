@@ -11,13 +11,13 @@ Dandify is not a theme. It is a theme helper that allows you to quickly apply ve
 
 Add this line to your Spree application's Gemfile:
 
-    gem 'dandify', github: 'groundctrl/dandify'
+    gem 'dandify'
 
 #### Bleeding edge
 
 Add this line to your Spree application's Gemfile:
 
-    gem 'dandify', github: 'groundctrl/dandify', branch: 'master'
+    gem 'dandify', github: 'groundctrl/dandify'
 
 > Note: The master branch is not guaranteed to be in a fully functioning state. It is unwise to use this branch in a production system.
 
@@ -30,6 +30,8 @@ Run the bundle command to install it:
 After installing Dandify you'll need to run the generator:
 
     bundle exec rails g dandify:install
+
+This will run migrations as well as install the styles for the admin.
 
 
 ## Testing

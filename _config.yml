@@ -1,0 +1,13 @@
+# Site settings
+title: Dandify
+description: Dynamic stylesheet decoration for Spree 2.3+
+baseurl: ""
+url: "http://groundctrl.github.io/dandify"
+
+# Build settings
+markdown: kramdown
+
+# SASS/SCSS
+sass:
+  sass_dir: _scss
+  style: :compressed

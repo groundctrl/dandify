@@ -1,0 +1,83 @@
+---
+layout: default
+---
+
+<h3>{{ site.title }}</h3>
+
+<p>
+  {{ site.title }} ({{ site.data.github.repo }}) is not a theme. It is a theme helper that allows you to quickly apply versioned frontend style changes from the Spree admin. {{ site.title }} only works with stylesheets. {{ site.title }} is best used in conjunction with <a href="https://github.com/groundctrl/shopping_mall" target="_blank">Shopping Mall</a>.
+</p>
+
+
+<h3>Installation</h3>
+
+<p>Add this line to your Spree application's Gemfile:</p>
+
+<pre><code>gem '{{ site.data.github.repo }}', github: '{{ site.data.github.path }}'
+</code></pre>
+
+<p>Run the bundle command to install it:</p>
+
+<pre><code>bundle install
+</code></pre>
+
+<p>After installing, run the generator:</p>
+
+<pre><code>bundle exec rails g {{ site.data.github.repo }}:install
+</code></pre>
+
+
+<h3>Testing</h3>
+
+<p>Generate a dummy application</p>
+
+<pre><code>bundle exec rake test_app
+</code></pre>
+
+<p>Running tests</p>
+
+<pre><code>bundle exec rake spec
+</code></pre>
+
+
+<h3>Contributing</h3>
+
+<ol>
+  <li>Fork it ( <a href="https://github.com/{{ site.data.github.path }}/fork">https://github.com/{{ site.data.github.path }}/fork</a> )</li>
+  <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+  <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+  <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+  <li>Create a new Pull Request</li>
+</ol>
+
+
+<h3>Authors and Contributors</h3>
+
+<p>Created and maintained by:</p>
+
+<ul>
+{% for author in site.data.authors %}
+  <li>
+    <a href="https://github.com/{{ author.username }}">{{ author.name }}</a>
+  </li>
+{% else %}
+  <li>No authors? That doesn't make sense.</li>
+{% endfor %}
+</ul>
+
+<p>Contributors include:</p>
+
+<ul>
+{% for contributor in site.data.contributors %}
+  <li>
+    <a href="https://github.com/{{ contributor.username }}">{{ contributor.name }}</a>
+  </li>
+{% else %}
+  <li>No one yet. Care to be the first?</li>
+{% endfor %}
+</ul>
+
+
+<h3>Support</h3>
+
+<p>Having trouble? Check out the <a href="https://github.com/{{ site.data.github.path }}/wiki">wiki</a> or view current <a href="https://github.com/{{ site.data.github.path }}/issues">issues</a>.</p>

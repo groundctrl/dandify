@@ -5,3 +5,5 @@ Gemfile.lock
 rspec.log
 coverage
 pkg/
+.sass-cache
+_site

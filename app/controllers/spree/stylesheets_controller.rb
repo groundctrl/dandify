@@ -8,8 +8,8 @@ module Spree
 
     private
 
-      def set_response_format
-        request.format = :css
-      end
+    def set_response_format
+      request.format = :css
+    end
   end
 end

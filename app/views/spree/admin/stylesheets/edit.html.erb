@@ -1,14 +1,14 @@
 <%= render 'spree/admin/shared/configuration_menu' %>
 
 <% content_for :page_title do %>
-  <%= Spree.t('dandify.edit.title') %>
+  <%= Spree.t('dandify.admin.title.edit') %>
 <% end %>
 
 <%= render partial: 'spree/shared/error_messages', locals: {target: @style} %>
 
 <%= form_for @style, url: admin_stylesheets_path do |f| %>
   <fieldset data-hook="edit_style">
-    <legend align="center"><%= Spree.t('dandify.form.fieldset') %></legend>
+    <legend align="center"><%= Spree.t('dandify.admin.legends.manage') %></legend>
     <%= render partial: 'form', locals: {f: f} %>
     <div class="form-buttons filter-actions actions" data-hook="buttons">
       <%= button Spree.t('actions.update'), 'ok' %>

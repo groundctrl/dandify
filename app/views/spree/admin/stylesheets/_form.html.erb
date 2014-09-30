@@ -2,9 +2,9 @@
   <div class="alpha twelve columns">
     <div data-hook="admin_stylesheet_form_style_raw" class="field">
       <%= f.field_container :style_raw do %>
-        <%= f.label :style_raw, raw(Spree.t('dandify.form.label') + content_tag(:span, ' *', class: 'required')) %>
+        <%= f.label :style_raw, raw(Spree.t('dandify.admin.labels.style_raw') + content_tag(:span, ' *', class: 'required')) %>
         <%= f.text_area :style_raw, rows: '13', class: 'fullwidth style_raw' %>
-        <br/><span class="info"><%= Spree.t('dandify.form.notes.sass') %></span>
+        <br/><span class="info"><%= Spree.t('dandify.admin.notes.sass') %></span>
       <% end %>
     </div>
   </div>

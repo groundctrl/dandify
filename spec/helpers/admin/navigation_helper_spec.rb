@@ -7,7 +7,7 @@ describe Spree::Admin::NavigationHelper do
     context 'link to restore URL' do
       it 'should build circular restore button' do
         restore_button = helper.link_to_restore_url(restore_path)
-        restore_button.should include(Spree.t('dandify.confirm.restore'))
+        restore_button.should include(Spree.t('dandify.admin.confirm.restore'))
       end
     end
   end

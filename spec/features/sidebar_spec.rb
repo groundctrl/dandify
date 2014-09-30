@@ -4,14 +4,16 @@ describe 'In the admin' do
   stub_authorization!
 
   let(:configuration_path) { spree.edit_admin_general_settings_path }
-  let(:show_path) { spree.admin_stylesheets_path }
-  let(:new_path) { spree.new_admin_stylesheets_path }
-  let(:edit_path) { spree.edit_admin_stylesheets_path }
+  let(:show_path)          { spree.admin_stylesheets_path }
+  let(:new_path)           { spree.new_admin_stylesheets_path }
+  let(:edit_path)          { spree.edit_admin_stylesheets_path }
 
   context 'on the configuration page' do
     it 'the user views Dandify link in sidebar' do
       visit configuration_path
-      expect(page).to have_link(Spree.t('dandify.sidebar'), href: show_path)
+      expect(page).to(
+        have_link(Spree.t('dandify.admin.sidebar'), href: show_path)
+      )
     end
 
     it 'the user views non-highlighted Dandify link in sidebar' do

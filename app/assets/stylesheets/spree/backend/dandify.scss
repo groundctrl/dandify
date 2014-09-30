@@ -1,0 +1,46 @@
+/* Icon rollover - Restore */
+table th.actions,
+table td.actions {
+  .fa-history:hover {
+    background-color: #9fc820;
+    color: #ffffff;
+  }
+}
+
+table tbody tr {
+  &.highlight.action-restore td {
+    background-color: #f8fceb;
+    border-color: #e0f1a9;
+  }
+
+  &.before-highlight.action-restore td {
+    border-bottom-color: #e0f1a9;
+  }
+}
+
+/* PowerTip - Restore */
+#powerTip.restore {
+  background-color: #9fc820;
+
+  &.n:before,
+  &.ne:before,
+  &.nw:before {
+    border-top-color: #9fc820;
+  }
+
+  &.e:before,
+  &.nw:before,
+  &.sw:before {
+    border-right-color: #9fc820;
+  }
+
+  &.s:before,
+  &.se:before,
+  &.sw:before {
+    border-bottom-color: #9fc820;
+  }
+
+  &.w:before {
+    border-left-color: #9fc820;
+  }
+}

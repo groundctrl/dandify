@@ -1,7 +1,9 @@
 Spree::Core::Engine.add_routes do
   namespace :admin do
     resource :stylesheets do
-      post 'restore', to: 'stylesheets#restore'
+      collection do
+        post :restore
+      end
     end
   end
 

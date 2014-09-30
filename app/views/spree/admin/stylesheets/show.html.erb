@@ -1,15 +1,15 @@
 <%= render 'spree/admin/shared/configuration_menu' %>
 
 <% content_for :page_title do %>
-  <%= Spree.t('dandify.show.title') %>
+  <%= Spree.t('dandify.admin.title.show') %>
 <% end %>
 
 <% content_for :page_actions do %>
 <li>
   <% if @style.persisted? %>
-    <%= button_link_to Spree.t('dandify.show.buttons.edit'), edit_admin_stylesheets_path, icon: 'edit', id: 'admin_edit_stylesheet_link' %>
+    <%= button_link_to Spree.t('dandify.admin.buttons.edit'), edit_admin_stylesheets_path, icon: 'edit', id: 'admin_edit_stylesheet_link' %>
   <% else %>
-    <%= button_link_to Spree.t('dandify.show.buttons.new'), new_admin_stylesheets_path, icon: 'plus', id: 'admin_new_stylesheet_link' %>
+    <%= button_link_to Spree.t('dandify.admin.buttons.new'), new_admin_stylesheets_path, icon: 'plus', id: 'admin_new_stylesheet_link' %>
   <% end %>
 </li>
 <% end %>
@@ -19,5 +19,5 @@
 <% if @style.persisted? %>
   <%= render partial: 'versions', locals: { versions: @style.versions } %>
 <% else %>
-  <%= Spree.t('dandify.show.none') %>
+  <%= Spree.t('dandify.admin.none') %>
 <% end %>

@@ -19,7 +19,7 @@ module Spree
         response = rollback_version
 
         redirect_to admin_stylesheets_path, flash: {
-          response => Spree.t("dandify.restore.#{response}")
+          response => Spree.t("dandify.admin.flash.#{response}.restore")
         }
       end
 
@@ -35,7 +35,7 @@ module Spree
       def update_action(type)
         if @style.update(style_params)
           redirect_to admin_stylesheets_path, flash: {
-            success: Spree.t("dandify.#{type}.success")
+            success: Spree.t("dandify.admin.flash.success.#{type}")
           }
         else
           render type

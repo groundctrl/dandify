@@ -2,7 +2,6 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'dandify/version'
 
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
   spec.platform    = Gem::Platform::RUBY
   spec.name        = 'dandify'
@@ -24,8 +23,10 @@ Gem::Specification.new do |spec|
   spec.requirements << 'none'
 
   spec.add_dependency 'spree_core', '~> 2.3.0'
-  spec.add_dependency 'sass-rails', '~> 4.0.0'
   spec.add_dependency 'paper_trail', '~> 3.0'
+
+  spec.add_development_dependency 'sass-rails'
+  spec.add_development_dependency 'coffee-rails'
   spec.add_development_dependency 'spring', '~> 1.1'
   spec.add_development_dependency 'sqlite3', '~> 1.3'
   spec.add_development_dependency 'rspec-rails', '~> 2.14'

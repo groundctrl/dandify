@@ -14,8 +14,8 @@ describe Spree::Admin::StylesheetsController do
 
   context '#show' do
     it 'assigns new instance when none is found' do
-       spree_get :show
-       expect(assigns[:style]).to be_new_record
+      spree_get :show
+      expect(assigns[:style]).to be_new_record
     end
 
     it 'assigns existing' do
@@ -41,9 +41,9 @@ describe Spree::Admin::StylesheetsController do
 
   context '#edit' do
     it 'can create a revision' do
-       create :stylesheet
-       spree_get :show
-       expect(response).to render_template(:show)
+      create :stylesheet
+      spree_get :show
+      expect(response).to render_template(:show)
     end
 
     it 'can not create a revision because error' do
@@ -57,14 +57,18 @@ describe Spree::Admin::StylesheetsController do
 
     it 'fails to reify when there is only one revision' do
       spree_post :restore
-      expect(flash[:error]).to eq Spree.t('dandify.restore.error')
+      expect(flash[:error]).to eq(
+        Spree.t('dandify.admin.flash.error.restore')
+      )
       expect(response).to redirect_to show_path
     end
 
     it 'able to reify when there is more than one revision' do
       spree_post :update, stylesheet: { style_raw: good_style }
       spree_post :restore
-      expect(flash[:success]).to eq Spree.t('dandify.restore.success')
+      expect(flash[:success]).to eq(
+        Spree.t('dandify.admin.flash.success.restore')
+      )
       expect(response).to redirect_to show_path
     end
   end

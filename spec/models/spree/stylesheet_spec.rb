@@ -13,7 +13,7 @@ describe Spree::Stylesheet do
   end
 
   context 'validations' do
-    let(:valid_css) { '#main {background-color: #0000ff}' }
+    let(:valid_css)   { '#main {background-color: #0000ff}' }
     let(:invalid_css) { 'main {background-color #0000ff}' }
 
     it { should validate_presence_of(:style_raw) }

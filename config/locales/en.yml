@@ -1,37 +1,40 @@
 ---
 en:
-  activerecord:
-    attributes:
-      spree/stylesheet:
-        style_raw: Styles
   spree:
     dandify:
-      unknown: Unknown
-      sidebar: Store Stylesheet
-      show:
-        title: Custom Styles
-        buttons:
-          new: Create stylesheet
-          edit: Edit stylesheet
+      admin:
+        unknown: Unknown
         none: No custom style yet! Let's get dandy!
+        sidebar: Store Stylesheet
+        confirm:
+          restore: Are you sure you want to restore this version of the stylesheet?
+        buttons:
+          new: Create Stylesheet
+          edit: Edit Stylesheet
+        icons:
+          restore: Restore
+        title:
+          show: Custom Styles
+          new: Creating Custom Styles
+          edit: Editing Custom Styles
+        flash:
+          success:
+            new: New stylesheet has been created.
+            edit: Stylesheet has been updated. A new revision has been created.
+            restore: Stylesheet has been restored. A new revision has been created.
+          error:
+            restore: Unable to restore stylesheet.
         headers:
           created_at: Created
           author: Author
-          action: Action
-      new:
-        title: Creating Custom Styles
-        success: New stylesheet has been created.
-      edit:
-        title: Editing Custom Styles
-        success: Stylesheet has been updated. A new revision has been created.
-      restore:
-        name: Restore
-        success: Stylesheet has been restored. A new revision has been created.
-        error: Unable to restore stylesheet.
-      form:
-        fieldset: Stylesheet
-        label: Styles
+        legends:
+          manage: Stylesheet
+        labels: &dandify_labels
+          style_raw: Styles
         notes:
           sass: Stylesheets are compiled and minified using a CSS preprocessor. Valid SCSS can be used here.
-      confirm:
-        restore: Are you sure you want to restore this version of the stylesheet?
+
+  activerecord:
+    attributes:
+      spree/stylesheet:
+        <<: *dandify_labels

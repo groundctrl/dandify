@@ -4,13 +4,15 @@ en:
     dandify:
       admin:
         unknown: Unknown
-        none: No custom style yet! Let's get dandy!
+        no_resource_found: No stylesheet found
+        create_one: Let's get dandy
         sidebar: Store Stylesheet
         confirm:
           restore: Are you sure you want to restore this version of the stylesheet?
         buttons:
           new: Create Stylesheet
           edit: Edit Stylesheet
+          back: Back To Stylesheets List
         icons:
           restore: Restore
         title:

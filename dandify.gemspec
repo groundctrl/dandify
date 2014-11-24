@@ -19,14 +19,15 @@ Gem::Specification.new do |spec|
                    'README.md']
   spec.test_files   = `git ls-files -- spec/*`.split("\n")
   spec.require_path = 'lib'
-  spec.has_rdoc = false
+  spec.has_rdoc     = false
   spec.requirements << 'none'
 
-  spec.add_dependency 'spree_core', '~> 2.3.0'
-  spec.add_dependency 'paper_trail', '~> 3.0'
+  spec.add_dependency 'spree_core', '~> 2.4.0'
+  spec.add_dependency 'paper_trail', '~> 3.0.2'
 
   spec.add_development_dependency 'sass-rails'
   spec.add_development_dependency 'coffee-rails'
+
   spec.add_development_dependency 'spring', '~> 1.1'
   spec.add_development_dependency 'sqlite3', '~> 1.3'
   spec.add_development_dependency 'rspec-rails', '~> 2.14'
@@ -36,6 +37,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'factory_girl', '~> 4.4'
   spec.add_development_dependency 'simplecov', '~> 0.7'
   spec.add_development_dependency 'pry', '~> 0.9'
-  # spec.add_development_dependency 'debugger', '~> 1.6'
+  spec.add_development_dependency 'debugger', '~> 1.6'
   spec.add_development_dependency 'shoulda-matchers', '~> 2.5'
 end

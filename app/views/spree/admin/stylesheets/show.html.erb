@@ -7,9 +7,9 @@
 <% content_for :page_actions do %>
 <li>
   <% if @style.persisted? %>
-    <%= button_link_to Spree.t('dandify.admin.buttons.edit'), edit_admin_stylesheets_path, icon: 'edit', id: 'admin_edit_stylesheet_link' %>
+    <%= link_to_with_icon 'edit', Spree.t('dandify.admin.buttons.edit'), edit_admin_stylesheets_path, class: 'button' %>
   <% else %>
-    <%= button_link_to Spree.t('dandify.admin.buttons.new'), new_admin_stylesheets_path, icon: 'plus', id: 'admin_new_stylesheet_link' %>
+    <%= link_to_with_icon 'plus', Spree.t('dandify.admin.buttons.new'), new_admin_stylesheets_path, class: 'button' %>
   <% end %>
 </li>
 <% end %>
@@ -19,5 +19,8 @@
 <% if @style.persisted? %>
   <%= render partial: 'versions', locals: { versions: @style.versions } %>
 <% else %>
-  <%= Spree.t('dandify.admin.none') %>
+  <div class="no-objects-found">
+    <%= Spree.t('dandify.admin.no_resource_found') %>,
+    <%= link_to Spree.t('dandify.admin.create_one'), new_admin_stylesheets_path %>!
+  </div>
 <% end %>

@@ -1,10 +1,10 @@
-<div data-hook="admin_style_form_fields" class="row">
-  <div class="alpha twelve columns">
-    <div data-hook="admin_stylesheet_form_style_raw" class="field">
-      <%= f.field_container :style_raw do %>
-        <%= f.label :style_raw, raw(Spree.t('dandify.admin.labels.style_raw') + content_tag(:span, ' *', class: 'required')) %>
-        <%= f.text_area :style_raw, rows: '13', class: 'fullwidth style_raw' %>
-        <br/><span class="info"><%= Spree.t('dandify.admin.notes.sass') %></span>
+<div data-hook="admin_style_form_fields" class="col-md-12">
+  <div class="form-group 12-row">
+    <div data-hook="admin_stylesheet_form_style_raw" class="form-group field">
+      <%= f.field_container :style_raw, class: ['form-group'] do %>
+        <%= f.label :style_raw, Spree.t('dandify.admin.labels.style_raw') %>
+        <%= f.text_area :style_raw, rows: '13', class: 'form-control ' %>
+        <br/><span class="help-block"><%= Spree.t('dandify.admin.notes.sass') %></span>
       <% end %>
     </div>
   </div>

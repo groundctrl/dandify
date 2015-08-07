@@ -1,3 +1,3 @@
 module Dandify
-  VERSION = '0.0.4'
+  VERSION = '3.0.0'
 end

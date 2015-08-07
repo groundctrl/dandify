@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary     = 'Add dynamic styling to your store.'
   spec.description = spec.summary
   spec.license     = 'MIT'
-  spec.required_ruby_version = '>= 1.9.3'
+  spec.required_ruby_version = '>= 2.0.0'
 
   spec.files = Dir['{app,config,db,lib}/**/*',
                    'MIT-LICENSE',
@@ -22,20 +22,19 @@ Gem::Specification.new do |spec|
   spec.has_rdoc     = false
   spec.requirements << 'none'
 
-  spec.add_dependency 'spree_core', '~> 2.4.0'
-  spec.add_dependency 'paper_trail', '~> 3.0.2'
+  spec.add_dependency 'spree_core', '~> 3.0'
+  spec.add_dependency 'paper_trail', '~> 4.0'
 
   spec.add_development_dependency 'sass-rails'
   spec.add_development_dependency 'coffee-rails'
 
-  spec.add_development_dependency 'spring', '~> 1.1'
   spec.add_development_dependency 'sqlite3', '~> 1.3'
-  spec.add_development_dependency 'rspec-rails', '~> 2.14'
-  spec.add_development_dependency 'capybara', '~> 2.2'
-  spec.add_development_dependency 'database_cleaner', '1.2'
-  spec.add_development_dependency 'poltergeist', '1.5'
-  spec.add_development_dependency 'factory_girl', '~> 4.4'
-  spec.add_development_dependency 'simplecov', '~> 0.7'
-  spec.add_development_dependency 'pry', '~> 0.9'
-  spec.add_development_dependency 'shoulda-matchers', '~> 2.5'
+  spec.add_development_dependency 'rspec-rails', '~> 3.3'
+  spec.add_development_dependency 'capybara', '~> 2.4'
+  spec.add_development_dependency 'database_cleaner', '1.4'
+  spec.add_development_dependency 'poltergeist', '1.6'
+  spec.add_development_dependency 'factory_girl', '~> 4.5'
+  spec.add_development_dependency 'simplecov', '~> 0.10'
+  spec.add_development_dependency 'pry-byebug', '~> 3.2'
+  spec.add_development_dependency 'shoulda-matchers', '~> 2.8'
 end

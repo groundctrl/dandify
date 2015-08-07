@@ -23,6 +23,10 @@ module Spree
         }
       end
 
+      def user_for_paper_trail
+        current_spree_user.present? ? current_spree_user.id : 'Unknown'
+      end
+
       private
 
       def rollback_version
@@ -48,10 +52,6 @@ module Spree
 
       def style_params
         params.require(:stylesheet).permit(:style_raw)
-      end
-
-      def user_for_paper_trail
-        current_spree_user
       end
     end
   end

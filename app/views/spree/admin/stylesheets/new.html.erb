@@ -1,23 +1,18 @@
-<%= render 'spree/admin/shared/configuration_menu' %>
+<%= render 'spree/admin/shared/sub_menu/configuration' %>
 
 <% content_for :page_title do %>
   <%= Spree.t('dandify.admin.title.new') %>
-<% end %>
-
-<% content_for :page_actions do %>
-  <li><%= link_to_with_icon 'arrow-left', Spree.t('dandify.admin.buttons.back'), admin_stylesheets_path, class: 'button' %></li>
 <% end %>
 
 <%= render partial: 'spree/shared/error_messages', locals: {target: @style} %>
 
 <%= form_for @style, url: admin_stylesheets_path do |f| %>
   <fieldset data-hook="new_style">
-    <legend align="center"><%= Spree.t('dandify.admin.legends.manage') %></legend>
     <%= render partial: 'form', locals: {f: f} %>
     <div class="form-buttons filter-actions actions" data-hook="buttons">
-      <%= button Spree.t('actions.create'), 'ok' %>
+      <%= button Spree.t('actions.create'), 'ok', 'submit', { class: 'btn-success' } %>
       <span class="or"><%= Spree.t(:or) %></span>
-      <%= link_to_with_icon 'remove', Spree.t('actions.cancel'), admin_stylesheets_path, class: 'button' %>
+      <%= button_link_to Spree.t('actions.cancel'), admin_stylesheets_path, icon: 'remove' %>
     </div>
   </fieldset>
 <% end %>

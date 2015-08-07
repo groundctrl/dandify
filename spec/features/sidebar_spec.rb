@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'In the admin sidebar' do
+feature 'In the admin sidebar' do
   stub_authorization!
 
   let(:configuration_path) { spree.edit_admin_general_settings_path }

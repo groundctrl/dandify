@@ -1,17 +1,15 @@
-<%= render 'spree/admin/shared/configuration_menu' %>
+<%= render 'spree/admin/shared/sub_menu/configuration' %>
 
 <% content_for :page_title do %>
   <%= Spree.t('dandify.admin.title.show') %>
 <% end %>
 
 <% content_for :page_actions do %>
-<li>
-  <% if @style.persisted? %>
-    <%= link_to_with_icon 'edit', Spree.t('dandify.admin.buttons.edit'), edit_admin_stylesheets_path, class: 'button' %>
-  <% else %>
-    <%= link_to_with_icon 'plus', Spree.t('dandify.admin.buttons.new'), new_admin_stylesheets_path, class: 'button' %>
-  <% end %>
-</li>
+<% if @style.persisted? %>
+  <%= link_to_with_icon 'edit', Spree.t('dandify.admin.buttons.edit'), edit_admin_stylesheets_path, class: 'button' %>
+<% else %>
+  <%= link_to_with_icon 'plus', Spree.t('dandify.admin.buttons.new'), new_admin_stylesheets_path, class: 'btn btn-success' %>
+<% end %>
 <% end %>
 
 <p class="notice"><%= notice %></p>

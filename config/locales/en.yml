@@ -12,7 +12,6 @@ en:
         buttons:
           new: Create Stylesheet
           edit: Edit Stylesheet
-          back: Back To Stylesheets List
         icons:
           restore: Restore
         title:
@@ -29,8 +28,6 @@ en:
         headers:
           created_at: Created
           author: Author
-        legends:
-          manage: Stylesheet
         labels: &dandify_labels
           style_raw: Styles
         notes:

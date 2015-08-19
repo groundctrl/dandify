@@ -5,20 +5,33 @@
 <% end %>
 
 <% content_for :page_actions do %>
-<% if @style.persisted? %>
-  <%= link_to_with_icon 'edit', Spree.t('dandify.admin.buttons.edit'), edit_admin_stylesheets_path, class: 'button' %>
-<% else %>
-  <%= link_to_with_icon 'plus', Spree.t('dandify.admin.buttons.new'), new_admin_stylesheets_path, class: 'btn btn-success' %>
+  <% if @style.persisted? %>
+    <%= link_to_with_icon 'edit', Spree.t('dandify.admin.buttons.edit'), edit_admin_stylesheets_path, class: 'btn btn-success' %>
+    <%= link_to_destroy_url %>
+  <% else %>
+    <%= link_to_with_icon 'plus', Spree.t('dandify.admin.buttons.new'), new_admin_stylesheets_path, class: 'btn btn-success' %>
+  <% end %>
 <% end %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css' %>
+  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js' %>
 <% end %>
 
 <p class="notice"><%= notice %></p>
 
 <% if @style.persisted? %>
-  <%= render partial: 'versions', locals: { versions: @style.versions } %>
+  <pre><code class="language-css"><%= @style.style_raw %></code></pre>
+
 <% else %>
   <div class="no-objects-found">
     <%= Spree.t('dandify.admin.no_resource_found') %>,
     <%= link_to Spree.t('dandify.admin.create_one'), new_admin_stylesheets_path %>!
   </div>
 <% end %>
+
+<div class="row">
+  <% if PaperTrail::Version.count > 1 %>
+    <%= render partial: 'versions', locals: { versions: previous_versions } %>
+  <% end %>
+</div>

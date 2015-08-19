@@ -10,7 +10,7 @@
   <fieldset data-hook="edit_style">
     <%= render partial: 'form', locals: {f: f} %>
     <div class="form-buttons filter-actions actions" data-hook="buttons">
-      <%= button Spree.t('actions.update'), 'ok', { class: 'btn-success' } %>
+      <%= button Spree.t('actions.update'), 'ok', 'submit', { class: 'btn-success' } %>
       <span class="or"><%= Spree.t(:or) %></span>
       <%= button_link_to Spree.t('actions.cancel'), admin_stylesheets_path, icon: 'remove' %>
     </div>

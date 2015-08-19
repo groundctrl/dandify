@@ -1,4 +1,13 @@
 /* Icon rollover - Restore */
+
+.spree-ace-field {
+  position: relative;
+}
+#editor {
+  position: absolute;
+  top: 24px; right: 0; left: 0; bottom: 46px;
+}
+
 table th.actions,
 table td.actions {
   .fa-history:hover {

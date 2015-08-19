@@ -3,17 +3,24 @@ en:
   spree:
     dandify:
       admin:
+        action:
+          create: Created
+          update: Revised
+          destroy: Deleted
         unknown: Unknown
         no_resource_found: No stylesheet found
         create_one: Let's get dandy
         sidebar: Store Stylesheet
         confirm:
           restore: Are you sure you want to restore this version of the stylesheet?
+          destroy: Are you sure you want to delete your stylesheet?
         buttons:
           new: Create Stylesheet
-          edit: Edit Stylesheet
+          edit: Edit
+          destroy: Delete
         icons:
           restore: Restore
+          destroy: Destroy
         title:
           show: Custom Styles
           new: Creating Custom Styles
@@ -23,11 +30,14 @@ en:
             new: New stylesheet has been created.
             edit: Stylesheet has been updated. A new revision has been created.
             restore: Stylesheet has been restored. A new revision has been created.
+            destroyed: Stylesheet has been destroyed. A new revision has been created.
           error:
             restore: Unable to restore stylesheet.
         headers:
-          created_at: Created
+          on: On
           author: Author
+          action: Action
+          revision: Revisions
         labels: &dandify_labels
           style_raw: Styles
         notes:

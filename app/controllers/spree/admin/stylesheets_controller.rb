@@ -5,7 +5,7 @@ module Spree
 
       respond_to :html
 
-      before_action :set_style
+      before_action :set_style, except: [:restore]
 
       def create
         update_action :new
@@ -13,6 +13,14 @@ module Spree
 
       def update
         update_action :edit
+      end
+
+      def destroy
+        @style.destroy
+
+        redirect_to admin_stylesheets_path, flash: {
+          success: Spree.t('dandify.admin.flash.destroyed')
+        }
       end
 
       def restore
@@ -24,13 +32,14 @@ module Spree
       end
 
       def user_for_paper_trail
-        current_spree_user.present? ? current_spree_user.id : 'Unknown'
+        Spree::UserIdentifier.new(current_spree_user).id
       end
 
       private
 
       def rollback_version
-        @style.versions.last.reify.save!
+        @style = PaperTrail::Version.find(params[:id]).reify
+        @style.save!
         :success
       rescue
         :error

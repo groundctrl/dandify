@@ -1,5 +1,8 @@
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start :rails do
+  add_filter 'version.rb'
+  add_filter 'install_generator.rb'
+end
 
 ENV['RAILS_ENV'] = 'test'
 

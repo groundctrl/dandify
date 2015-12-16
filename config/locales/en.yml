@@ -47,3 +47,5 @@ en:
     attributes:
       spree/stylesheet:
         <<: *dandify_labels
+      spree/store:
+        logo: Logo

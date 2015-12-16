@@ -1,0 +1,21 @@
+<!-- insert_after '.panel.currency' -->
+
+<%#-------------------------------------------------%>
+<%# Logo Upload                                     %>
+<%#-------------------------------------------------%>
+<%= fields_for :store do |f| %>
+<div class="panel panel-default logo">
+  <div class="panel-heading">
+    <h1 class="panel-title">
+      <%= Spree.t('dandify.admin.logo') %>
+    </h1>
+  </div>
+
+  <div class="panel-body">
+    <div class="form-group">
+      <%= f.label :logo %>
+      <%= f.file_field :logo, class: 'form-control'  %>
+    </div>
+  </div>
+</div>
+<% end %>

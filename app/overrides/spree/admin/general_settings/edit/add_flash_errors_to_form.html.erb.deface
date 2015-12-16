@@ -1,0 +1,5 @@
+<!-- insert_after 'erb:contains("form_tag admin_general_settings_path")' -->
+
+<% if current_store.try(:errors).present? %>
+  <%= render 'spree/admin/shared/error_messages', target: current_store %>
+<% end %>

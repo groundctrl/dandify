@@ -1,0 +1,2 @@
+<!-- replace 'erb:contains("form_tag admin_general_settings_path")' -->
+<%= form_tag admin_general_settings_path, method: :put, multipart: true do %>
